@@ -1,0 +1,14 @@
+*.pyc
+*~
+.Python
+.installed.cfg
+.mr.developer.cfg
+.venv/
+app/dist/
+bin/
+develop-eggs/
+downloads/
+eggs/
+installed.cfg
+local_appserver_deps/
+parts/
