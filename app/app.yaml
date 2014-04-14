@@ -6,7 +6,7 @@ threadsafe: true
 
 handlers:
 - url: .*
-  script: hello.get_app
+  script: hello.application
 
 
 #default_expiration: "4d 5h"
