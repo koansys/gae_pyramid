@@ -19,8 +19,8 @@ Virtualenv::
 
 Buildout::
 
-  ./.venv/bin/python bootstrap.py 
-  ./bin/buildout 
+  ./.venv/bin/python bootstrap.py
+  ./bin/buildout
 
 The buildout takes a while because it downloads the GAE SDK; you might
 want to set up a buildout download-cache.
@@ -49,3 +49,26 @@ server::
   INFO     2014-04-15 17:18:52,940 dispatcher.py:182] Starting module "default" running at: http://localhost:8080
   INFO     2014-04-15 17:18:52,948 admin_server.py:117] Starting admin server at: http://localhost:8000
   INFO     2014-04-15 17:18:56,181 module.py:627] default: "GET / HTTP/1.1" 200 21
+
+
+Push to GAE
+===========
+
+Create a new application at https://appengine.google.com/
+
+Create a new release branch::
+
+  $ git flow release start 1.0
+
+ update $BUILDOUT_DIR/app/app.yaml::
+
+  application: <YOURAPPNAME_ID>
+  version: <APPROPRIATEVERSION_IS_PROBABLY_1>
+
+  $ ./bin/appcfg --oauth2 update app/
+
+Then commit, tag and push::
+
+  $ git flow release finish 1.0
+  $ git push --tags
+  $ git push --all
