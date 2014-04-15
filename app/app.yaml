@@ -14,13 +14,16 @@ handlers:
 #derived_file_type:
 #- python_precompiled
 
+# sontek didn't need to specify setuptools, but Reed & Chris did, on
+# two different platforms
+
 libraries:
 - name: webob
   version: "1.2.3"
-# - name: PIL
-#   version: "1.1.7"
-# - name: webob
-#   version: latest
+- name: setuptools
+  version: 0.6c11
+
+
 # - name: pycrypto
 #   version: latest                                                               
 # - name: markupsafe                                                              
